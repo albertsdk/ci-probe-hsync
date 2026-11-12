@@ -6,6 +6,8 @@ workflows:
     '.github/workflows/probe.yml':
         - 'actions/checkout@v7.0.1'
         - 'actions/setup-python@v7.1.0'
+    '.github/workflows/release-probe.yml':
+        - 'actions/checkout@v7.0.1'
 dependencies:
     'actions/checkout@v7.0.1':
         ref: 'v7.0.1'

@@ -1,0 +1,15 @@
+name: RelProbe
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  rel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: try create draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST /repos/$GITHUB_REPOSITORY/releases -f tag_name=probe-v0.0.1 -f name=probe -F draft=true --jq "{id, tag_name, draft}"
